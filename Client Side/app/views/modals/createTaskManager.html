@@ -1,0 +1,36 @@
+<div class="modal-dialog" style="width: 50%;">
+  <div class="modal-content" style="text-align:center; max-height: 850px;">
+    <section class="main padder m-t-small">
+      <h1>{{getTitle()}}</h1>
+      <input type="radio" ng-checked="taskType == 0" ng-disabled="isEditMode" name="discountPerTypeCB" ng-click="appliedOnChanged(0)" /><label>&nbsp; Time Task &nbsp;</label>
+      <input type="radio" ng-checked="taskType == 1" ng-disabled="isEditMode" name="discountPerTypeCB" ng-click="appliedOnChanged(1)" /><label>&nbsp; Severity Task</label>
+      <div class="row">
+        <span>Title: &nbsp;</span><input type="text" data-ng-model="saveTaskDetails.Title"/></br>
+        <span>Description: &nbsp;</span><input type="text" data-ng-model="saveTaskDetails.Description" />
+        <div ng-if="taskType == 0">
+          <span>Start Date: {{selectedDate.toString()}}</span>
+          <div>
+            <input class="form-control" data-ng-model="saveTaskDetails.StartDate" ng-click="showStartDatePicker = !showStartDatePicker" style="width:30%; display: inline-block;" />
+            <datePicker ng-model="$parent.saveTaskDetails.StartDate" ng-show="showStartDatePicker" class="datepicker-popover"></datePicker>
+          </div>
+          <span>End Date:</span>
+          <div>
+            <input class="form-control" data-ng-model="saveTaskDetails.EndDate" ng-click="showEndDatePicker = !showEndDatePicker" style="width:30%; display: inline-block;" />
+            <datePicker ng-model="$parent.saveTaskDetails.EndDate" ng-show="showEndDatePicker" class="datepicker-popover"></datePicker>
+          </div>
+        </div>
+        <div ng-if="taskType == 1">
+          <span>Severity: </span>
+          <select data-ng-model="saveTaskDetails.Severity" name="saveTaskDetails.Severity" required data-ng-options="severity.id as severity.value for severity in severities track by severity.id">
+            <option value="severity"></option>
+          </select>
+        </div>
+      </div>
+    </section>
+    <div class="m-b-small m-t-small" style="padding-bottom: 2px; padding-left: 2px;">
+      <button class="btn btn-default" data-ng-click="close()">Close</button>
+      <button class="btn btn-default" data-ng-click="save()">Save</button>
+    </div>
+  </div>
+</div>
+

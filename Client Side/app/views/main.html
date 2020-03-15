@@ -1,0 +1,32 @@
+<button type="button" class="btn btn-sm btn-white dropdown-toggle" style="font-weight: bold; color: red; background-color: aliceblue; border:dashed; margin: 0 auto;" data-toggle="dropdown" ng-click="addNewTask(task)">Add New Task &nbsp;<i class="fa fa-plus"></i></button>
+
+<h3 style="text-decoration: underline; color: aquamarine;">Time Tasks</h3>
+<div class="row marketing timeTask" style="margin: 10px 0px !important">
+  <div ng-repeat="task in timeTasks" class="taskDetails">
+    <h5 class="taskTitles">Title:</h5>
+    <p>{{task.Title}}</p>
+    <h5 class="taskTitles">Description:</h5>
+    <p> {{task.Description}}</p>
+    <h5 class="taskTitles">Start:</h5>
+    <p>{{task.StartDate | date:'yyyy-MM-dd'}}</p>
+    <h5 class="taskTitles">End:</h5>
+    <p>{{task.EndDate | date:'yyyy-MM-dd'}}</p>
+    <button type="button" class="btn btn-sm btn-white dropdown-toggle" style="font-weight: bold; border: 1px solid; margin: 0 auto;" data-toggle="dropdown;" ng-click="updateTask(task,0)">Edit &nbsp;<i class="fa fa-pencil"></i></button>
+    <button type="button" class="btn btn-sm btn-white dropdown-toggle" style="font-weight: bold; border: 1px solid; margin: 0 auto;" data-toggle="dropdown" ng-click="deleteTask(task,0)">Delete &nbsp;<i class="fa fa-trash"></i></button>
+  </div>
+</div>
+
+<h3 style="text-decoration: underline; color: coral">Severity Tasks</h3>
+<div class="row marketing" style="margin: 10px 0px !important">
+  <div ng-repeat="task in severityTasks" class="taskDetails">
+    <h5 class="taskTitles">Title:</h5>
+    <p>{{task.Title}}</p>
+    <h5 class="taskTitles">Description:</h5>
+    <p> {{task.Description}}</p>
+    <h5 class="taskTitles">Severity:</h5>
+    <p> {{getSeverity(task)}}</p>
+    <button type="button" class="btn btn-sm btn-white dropdown-toggle" style="font-weight: bold; border: 1px solid; margin: 0 auto;" data-toggle="dropdown" ng-click="updateTask(task,1)">Edit &nbsp;<i class="fa fa-pencil"></i></button>
+    <button type="button" class="btn btn-sm btn-white dropdown-toggle" style="font-weight: bold; border: 1px solid; margin: 0 auto;" data-toggle="dropdown" ng-click="deleteTask(task,1)">Delete &nbsp;<i class="fa fa-trash"></i></button>
+  </div>
+</div>
+

@@ -1,0 +1,37 @@
+*{
+  box-sizing:border-box;
+}
+
+datePicker{
+  display: inline-block;
+  padding-top: 5px;
+  width: 30rem;
+}
+
+.datepicker-popover{
+  position: absolute;
+}
+
+.datePicker-day {
+  flex: 0 0 calc(100%/7);
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-container.wrap{
+  flex-wrap: wrap;
+}
+
+.flex-container.v-center{
+  align-items: center;
+}
+
+.flex-container.space-between{
+  justify-content: space-between;
+}
+
+.flex-container > .grow{
+  flex-grow: 1;
+}
